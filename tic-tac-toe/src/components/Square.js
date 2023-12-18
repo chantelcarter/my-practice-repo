@@ -6,7 +6,7 @@ const Square = (props) => {
         {props.squares.map((value, index) => {
             return(
                 <main>
-            <div className="square">
+            <div className="square" onClick={() => props.handleClick(index)}>
                 {value}
             </div>
         </main> 

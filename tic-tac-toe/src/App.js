@@ -4,11 +4,21 @@ import './App.css'
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
+  const [player, setPlayer] = useState(true)
+
+  const handleClick = (index) => {
+    const newSquares = [...squares];
+    if (newSquares[index] === null) {
+      newSquares[index] = player ? '❌' : '⭕️'
+      setSquares(newSquares)
+      setPlayer(!player)
+    }
+  }
 
   return (
     <>
       <h1>Tic Tac Toe</h1>
-      <Square squares={squares}/>
+      <Square squares={squares} handleClick={handleClick}/>
     </>
   )
 }
